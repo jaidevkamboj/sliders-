@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-Row 3-Column Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Basic slider styles */
+.slider {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.slider-column {
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.slider-column h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.slider-column p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.slider-column img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.slider-column .btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #007bff00;
+    color: #F15523;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 1px solid #F15523;
+    font-family: sans-serif;
+}
+
+.slider-column .btn:hover {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+/* Navigation buttons */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slider-nav-prev {
+    left: 10px;
+}
+
+.slider-nav-next {
+    right: 10px;
+}
+
+/* Slider indicators */
+.slider-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slider-indicators button {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    border: none;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.slider-indicators button.active {
+    background-color: #007bff;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .slider-column {
+        width: 32%; /* Adjust slightly for larger tablet sizes */
+    }
+}
+
+@media (max-width: 768px) {
+    .slider-item {
+        flex-direction: column;
+    }
+    .slider-column {
+        width: 100%; /* Each column takes full width on smaller screens */
+        margin-bottom: 20px;
+    }
+    .slider-column img {
+        width: 100%; /* Ensure the image scales properly */
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-column h2 {
+        font-size: 1.2rem; /* Reduce heading font size for mobile */
+    }
+    .slider-column p {
+        font-size: 0.9rem; /* Reduce description font size for mobile */
+    }
+    .slider-column .btn {
+        padding: 8px 20px; /* Adjust button size for mobile */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<div class="slider">
+    <div class="slider-container">
+        <div class="slider-item">
+            <div class="slider-column">
+                <h2>Data Backup & Recovery</h2>
+                <p>Our technicians are highly skilled and stay up-to-date with the latest technologies to provide you with the best solutions.</p>
+                <img src="img/service-1.webp" alt="Image 1">
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="slider-column">
+                <h2> PC Repair</h2>
+                <p>Our technicians are highly skilled and stay up-to-date with the latest technologies to provide you with the best solutions.</p>
+                <img src="img/service-2.webp">
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="slider-column">
+                <h2> Laptop Repair</h2>
+                <p>Our technicians are highly skilled and stay up-to-date with the latest technologies to provide you with the best solutions.</p>
+                <img src="img/service-3.webp" alt="Image 3">
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="slider-item">
+            <div class="slider-column">
+                <h2>Heading 4</h2>
+                <p>Description for Slide 4</p>
+                <img src="img/service-4.webp" alt="Image 4">
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="slider-column">
+                <h2>Heading 5</h2>
+                <p>Description for Slide 5</p>
+                <img src="img/service-3.webp" alt="Image 5">
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="slider-column">
+                <h2>Heading 6</h2>
+                <p>Description for Slide 6</p>
+                <img src="img/service-4.webp" alt="Image 6">
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <button class="slider-nav slider-nav-prev"><i class="fa-solid fa-arrow-right"></i></button>
+    <button class="slider-nav slider-nav-next"><i class="fa-solid fa-arrow-left"></i></button>
+
+    <!-- Indicators -->
+    <div class="slider-indicators">
+        <button class="active"></button>
+        <button></button>
+    </div>
+</div>
+<script>
+jQuery(document).ready(function ($) {
+    const slideWidth = $('.slider-item').outerWidth(true); // Get width of each slide
+    let currentSlide = 0;
+    const totalSlides = $('.slider-item').length;
+
+    function updateSlider() {
+        const newTransform = `translateX(-${currentSlide * 100}%)`;
+        $('.slider-container').css('transform', newTransform);
+    }
+
+    $('.slider-nav-next').click(function () {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+        } else {
+            currentSlide = 0; // Loop back to the first slide
+        }
+        updateSlider();
+    });
+
+    $('.slider-nav-prev').click(function () {
+        if (currentSlide > 0) {
+            currentSlide--;
+        } else {
+            currentSlide = totalSlides - 1; // Loop back to the last slide
+        }
+        updateSlider();
+    });
+
+    $('.slider-indicators button').click(function () {
+        currentSlide = $(this).index(); // Get index of clicked indicator
+        updateSlider();
+    });
+});
+</script>
+</body>
+</html>
